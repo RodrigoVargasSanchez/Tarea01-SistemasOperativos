@@ -5,6 +5,7 @@
 #include <sstream>
 #include <unistd.h>
 #include <cstring> 
+#include <string>
 using namespace std;
 
 int sumatoriaVector(const std::vector<int>& vector) {
@@ -63,13 +64,16 @@ int main(int argc, char *argv[]) {
                 break;
             case 'v':
                 {
-                    // Parse the values separated by semicolons
                     string valuesString(optarg);
                     stringstream ss(valuesString);
                     string valueToken;
                     while (getline(ss, valueToken, ',')) {
-                        int value = atoi(valueToken.c_str());
-                        valores.push_back(value);
+                        try {
+                            int value = std::stoi(valueToken);
+                            valores.push_back(value);
+                        } catch (const std::invalid_argument& e) {
+                            std::cerr << "ERROR Valor no numérico: " << valueToken << std::endl;
+                        }
                     }
                 }
                 break;
@@ -114,7 +118,7 @@ int main(int argc, char *argv[]) {
 
     auto it = find(nombres.begin(), nombres.end(), usuario);
 
-    if (it != nombres.end()) {
+    if (it != nombres.end() && valores.empty() == false) {
         int opcion;
         int indice = distance(nombres.begin(), it);
         vector<string> opciones = {
@@ -138,54 +142,60 @@ int main(int argc, char *argv[]) {
 
         do {
 
-        cout << "Opcion: ";
-        cin >> opcion;
-
-        switch (opcion) {
-            case 1:
-                if (numeroEstaEnVector(1, numeros[indice])){
-                    cout << "Resultado : " << sumatoriaVector(valores) << endl;
-                }
-                else{
-                    cout << "No posee permiso para realizar esta accion !!!!!!" << endl;
-                }
-                break;
-            case 2:
-                if (numeroEstaEnVector(2, numeros[indice])){
-                    cout << "Resultado : " << calcularPromedio(valores) << endl;
-                }
-                else{
-                    cout << "No posee permiso para realizar esta accion !!!!!" << endl;
-                }
-                break;
-            case 3:
-                if (numeroEstaEnVector(3, numeros[indice])){
-                    cout << "Resultado : " << calcularModa(valores) << endl;
-                }
-                else{
-                    cout << "No posee permiso para realizar esta accion !!!!!" << endl;
-                }
-                break;
-            case 4:
-                if (numeroEstaEnVector(4, numeros[indice])){
-                    cout << "Resultado : " << contarElementos(valores) << endl;
-                }
-                else{
-                    cout << "No posee permiso para realizar esta accion !!!!!" << endl;
-                }
-                break;
-            case 5:
-                cout << "Saliendo del programa." << endl;
-                break;
-            default:
-                cout << "Opción no válida. Por favor, seleccione otra opcion." << endl;
+            std::cout << "Opcion: ";
+            if (!(cin >> opcion)) {
+                std::cout << "DEBE INGRESAR UN VALOR NUMERICO. SALIENDO..." << std::endl;
+                exit(0);
+                
             }
 
-        } while (opcion != 5);
+            switch (opcion) {
+                case 1:
+                    if (numeroEstaEnVector(1, numeros[indice])){
+                        cout << "Resultado : " << sumatoriaVector(valores) << endl;
+                    }
+                    else{
+                        cout << "No posee permiso para realizar esta accion !!!!!!" << endl;
+                    }
+                    break;
+                case 2:
+                    if (numeroEstaEnVector(2, numeros[indice])){
+                        cout << "Resultado : " << calcularPromedio(valores) << endl;
+                    }
+                    else{
+                        cout << "No posee permiso para realizar esta accion !!!!!" << endl;
+                    }
+                    break;
+                case 3:
+                    if (numeroEstaEnVector(3, numeros[indice])){
+                        cout << "Resultado : " << calcularModa(valores) << endl;
+                    }
+                    else{
+                        cout << "No posee permiso para realizar esta accion !!!!!" << endl;
+                    }
+                    break;
+                case 4:
+                    if (numeroEstaEnVector(4, numeros[indice])){
+                        cout << "Resultado : " << contarElementos(valores) << endl;
+                    }
+                    else{
+                        cout << "No posee permiso para realizar esta accion !!!!!" << endl;
+                    }
+                    break;
+                case 5:
+                    cout << "Saliendo del programa." << endl;
+                    break;
+                default:
+                    cout << "Opción no válida. Por favor, seleccione otra opcion." << endl;
+                }
 
+        } while (opcion != 5 && opcion != -1);
 
-    } else {
+    } else if (it == nombres.end()){
         cout << "Usuario no registrado" << endl;
+    }
+    else if(valores.empty() == true){
+        cout << "Debe ingresar un vector de valores numericos despues del usuario. Ejemplo: -v 1,2,3,4" << endl;
     }
 
     return 0;
