@@ -44,8 +44,8 @@ Después de compilar correctamente, puedes ejecutar el programa utilizando el si
 
 La información de los usuarios y sus permisos se lee desde un archivo de texto en el siguiente formato:
 
-Matias;1,2,3,4
-Luis;1,2,3
+Matias;1,2,3,4 <br>
+Luis;1,2,3 <br>
 Mateo;2,3
 
 
