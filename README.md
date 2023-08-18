@@ -26,6 +26,7 @@ Para compilar el programa, asegúrate de tener instalado un compilador de C++ en
 
 ```bash
 make
+```
 
 
 ## Ejecución
@@ -34,7 +35,7 @@ Después de compilar correctamente, puedes ejecutar el programa utilizando el si
 
 ```bash
 ./programa -u Usuario -v 1,2,3,4
-
+```
 
 - Reemplaza `Usuario` con el nombre del usuario que deseas utilizar.
 - Reemplaza `1,2,3,4` con los valores enteros separados por comas para el vector.
