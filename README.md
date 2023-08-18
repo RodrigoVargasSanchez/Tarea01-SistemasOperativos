@@ -34,7 +34,7 @@ make
 Después de compilar correctamente, puedes ejecutar el programa utilizando el siguiente comando:
 
 ```bash
-./programa -u Usuario -v 1,2,3,4
+./prog -u Usuario -v 1,2,3,4
 ```
 
 - Reemplaza `Usuario` con el nombre del usuario que deseas utilizar.
