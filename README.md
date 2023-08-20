@@ -71,5 +71,6 @@ La opciones desplegadas en el menu se leen desde un archivo de texto en el sigui
 2,Realizar promedio del vector,2  
 
 
+
 - Cada línea representa una opcion del menu, en donde los valores estan separados por comas.
 - El primer numero antes de la coma representa el numero de la opcion en el menu, el string siguiente la opcion del menu, mientras que el ultimo numero viene asociado a la funcion que se debe ejecutar en el codigo para dicha opcion.
