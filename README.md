@@ -51,7 +51,7 @@ Después de compilar correctamente, puedes ejecutar el programa utilizando el si
 
 ## Base de Datos de usuarios
 
-La información de los usuarios y sus permisos se lee desde un archivo de texto en el siguiente formato:
+La información de los usuarios y sus permisos se lee desde un archivo de una base de datos llamada "usuarios.txt" en el siguiente formato:
 
 Matias;1,2,3,4  
 Luis;1,2,3  
@@ -62,7 +62,7 @@ Mateo;2,3
 - Los permisos son valores enteros que representan el acceso del usuario a ciertas funcionalidades.
 
 ## Base de Datos del menu
-La opciones desplegadas en el menu se leen desde un archivo de texto en el siguiente formato:
+La opciones desplegadas en el menu se leen desde una base de datos llamada "menu.txt" en el siguiente formato:
 
 0,Salir,0  
 1,Realizar sumatoria del vector,1  
