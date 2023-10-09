@@ -66,10 +66,35 @@ La opciones desplegadas en el menu se leen desde una base de datos llamada "menu
 
 Archivo dedicado a la ruta de las bases de datos con la siguiente estructura, la cual es leida desde el programa:
 
-MENU=/home/rodrigo/Escritorio/Universidad/6to/SO/Tarea03/Bases de datos/menu.txt  
+MENU= Ruta del menu a mostrar en pantalla  
 
-PERFILES=/home/rodrigo/Escritorio/Universidad/6to/SO/Tarea03/Bases de datos/perfiles.txt  
+PERFILES= Ruta de los tipos de perfiles en el programa  
 
-USUARIOS=/home/rodrigo/Escritorio/Universidad/6to/SO/Tarea03/Bases de datos/usuarios.txt  
+USUARIOS= Ruta de los usuarios registrados  
 
--En donde se encuentran las rutas de las base de datos menu.txt,perfiles.txt y usuarios.txt.
+EXTENTION= Extension del tipo de archivo a procesar en la opcion 8  
+
+PATH_FILES_IN= Ruta en donde se leen los archivos a procesar en la opcion 8  
+
+PATH_FILES_OUT= Ruta en donde se escriben los archivos procesados en la opcion 8  
+
+AMOUNT_THREADS= Cantidad de threads a usa en la opcion 8  
+
+INVERTED_INDEX_FILE= Ruta donde se escribirá el indice creado en la opcion 9  
+
+## Opcion 8 y 9  
+Opcion 8 --> Preparar datos para indice invertido  
+Opcion en la cual se se leen archivos en la ruta y formato especificados, se procesan externamente, y se escriben los archivos con las palabras ya contadas en la ruta especificada. Ej:  
+palabra1 : 3  
+palabra2 : 78  
+palabra3 : 43  
+
+Opcion 9 --> Crear indice invertido
+Opcion en la cual se crea un indice en la ruta especificada, esto se hace mediante un proceso externo en el cual se ocupuan los archivos ya procesados en la opcion 8. Esta opcion no se puede realizar sin antes haber realizado la opcion anterior.Ej:  
+palabra1 : (file006.txt,1);  
+
+palabra2 : (file006.txt,1);  
+
+palabra3 : (file006.txt,1);    
+
+
