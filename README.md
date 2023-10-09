@@ -92,9 +92,7 @@ palabra3 : 43
 Opcion 9 --> Crear indice invertido
 Opcion en la cual se crea un indice en la ruta especificada, esto se hace mediante un proceso externo en el cual se ocupuan los archivos ya procesados en la opcion 8. Esta opcion no se puede realizar sin antes haber realizado la opcion anterior.Ej:  
 palabra1 : (file006.txt,1);  
-
 palabra2 : (file006.txt,1);  
-
 palabra3 : (file006.txt,1);    
 
 
